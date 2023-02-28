@@ -12,11 +12,11 @@ dirx, diry = 0, 0
 fps = 60
 dirs = {'W': True, 'S': True, 'A': True, 'D': True, }
 score = 0
-speed_count, snake_speed = 0, 10
+speed_count = 0
+snake_speed = 10
 pygame.init()
 screen = pygame.display.set_mode([RES, RES])
 clock = pygame.time.Clock()
-font_score = pygame.font.SysFont('Arial', 26, bold=True)
 font_end = pygame.font.SysFont('Arial', 66, bold=True)
 img = pygame.image.load('трава.jpg').convert()
 pygame.display.set_caption('Змейка. Счёт:' + str(score))
@@ -63,8 +63,8 @@ while True:
         snake_speed = max(snake_speed, 4)
     if x < 0 or x > RES - SIZE or y < 0 or y > RES - SIZE or len(snake) != len(set(snake)):
         while running:
-            render_end = font_end.render('Игра окончена', 1, pygame.Color('orange'))
-            count_end = font_end.render('Счёт:' + str(score), 1, pygame.Color('orange'))
+            render_end = font_end.render('Игра окончена', 1, pygame.Color('black'))
+            count_end = font_end.render('Счёт:' + str(score), 1, pygame.Color('white'))
             screen.blit(render_end, (RES // 2 - 250, RES // 3))
             screen.blit(count_end, (RES // 2 - 110, RES // 3 + 100))
             pygame.display.flip()
